@@ -8,79 +8,131 @@
 import SwiftUI
 
 struct OTPView: View {
+    
+    @State var timerVal = 0.0
+    @State var isSegue = false
+    @State var first = 0
+    @State var second = 0
+    @State var third = 0
+    @State var fourth = 0
+    
+    @ObservedObject var textBindingManager = TextBindingManager(limit: 1)
+    
     var body: some View {
         
-        ZStack{
+       
+        var _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (tick) in
             
-            LinearGradient(gradient: Gradient(colors: [Color("BG_Color")]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            
-            
-            VStack {
-                Text("sms ვერიფიკაცია")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .padding(.bottom, 60)
-                    .padding(.top, 100)
-                 
+            if timerVal < 0.8{
+                timerVal += 0.10
+                print(timerVal)
+            }else{
+                isSegue.toggle()
+            }
+        }
+       
+        
+        GeometryReader(content: { geometry in
+            ZStack{
                 
-                Text("შეიყვანე SMS კოდი")
-                    .font(.subheadline)
-                    .foregroundColor(.white)
+                LinearGradient(gradient: Gradient(colors: [Color("BG_Color")]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 
-                HStack{
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 25)
-                            .stroke(Color("Stroke_Color"))
-                            .frame(height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                            .padding(.horizontal, 20)
-                        
-                        HStack{
+                
+                VStack {
+                    Text("sms ვერიფიკაცია")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .padding(.bottom, 60)
+                        .padding(.top, 100)
+                     
+                    
+                    Text("შეიყვანე SMS კოდი")
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                    
+                    HStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 25)
+                                .stroke(Color("Stroke_Color"))
+                                .frame(height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .padding(.horizontal, 20)
                             
-                            ForEach(0 ..< 4){_ in
+                            HStack{
                                 
-                                numberView()
-                               
+                                ForEach(0 ..< 4){_ in
+                                    
+                                    VStack {
+                                        numberView()
+                                    }
+                                        
+                                   
+                                }
+                                
+                                
                             }
-                            
-                            
+                            .padding(.horizontal)
+                         
                         }
-                            
-                        .padding(.horizontal)
+                       
+                        
                     }
+                    
+                    ZStack(alignment:.leading){
+                        
+                    Capsule()
+                        .stroke(Color("Stroke_Color"))
+                        .frame(height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        
+                       
+                        
+                        Capsule()
+                            .fill(LinearGradient(gradient: Gradient(colors: [Color("Button_Color"), Color.yellow]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                            .frame(width:geometry.size.width * CGFloat(timerVal),  height: 5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                            .padding(.horizontal,5)
+                            
+                            
+                            Spacer()
+                        
+                        
+                        
+                        
                 }
-                
-                ZStack(alignment:.leading){
+                    .padding(.horizontal)
+                    .padding(.top, 60)
                     
-                Capsule()
-                    .stroke(Color("Stroke_Color"))
-                    .frame(height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     
+                    NavigationLink(
+                        destination: Text("Yahoo"),
+                        isActive: $isSegue,
+                        label: {
+                            Button(action: {
+                               
+                            }, label: {
+                                ButtonWithImageView(Title: "შემდეგი")
+                                    .padding(.top, 30)
+                            })
+                        })
+                  
+                    
+                  
                    
                     
-                    Capsule()
-                        .fill(LinearGradient(gradient: Gradient(colors: [Color("Button_Color"), Color.yellow]), startPoint: /*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/, endPoint: /*@START_MENU_TOKEN@*/.trailing/*@END_MENU_TOKEN@*/))
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                        .frame(width:100,  height: 5, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                        .padding(.horizontal,5)
-                        
-                        
-                        
+                   
+                   
                     
-                    
-            }
-                .padding(.horizontal)
-                .padding(.top, 60)
-                Spacer()
-                
+                }
+            
                
-                ButtonWithImageView(Title: "შემდეგი")
-                
             }
+        })
+       
         
-           
-        }
+      
     }
+    
+    
 }
 
 struct OTPView_Previews: PreviewProvider {
@@ -90,17 +142,41 @@ struct OTPView_Previews: PreviewProvider {
 }
 
 struct numberView: View {
+    
+    @State var val = ""
+    @ObservedObject var textBindingManager = TextBindingManager(limit: 1)
+    
+    
     var body: some View {
         ZStack{
-            RoundedRectangle(cornerRadius: 25)
+            RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color("Stroke_Color"))
-                .frame(width: 70,height: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 50,height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             
-            Text("-")
+            TextField("-", text: $textBindingManager.text)
+                .foregroundColor(.gray)
                 .font(.largeTitle)
-                .foregroundColor(.white)
+                    .padding()
+                    .multilineTextAlignment(.center)
+                    
+
             
-            Spacer()
+        
         }
+    }
+}
+
+class TextBindingManager: ObservableObject {
+    @Published var text = "" {
+        didSet {
+            if text.count > characterLimit && oldValue.count <= characterLimit {
+                text = oldValue
+            }
+        }
+    }
+    let characterLimit: Int
+
+    init(limit: Int = 5){
+        characterLimit = limit
     }
 }
