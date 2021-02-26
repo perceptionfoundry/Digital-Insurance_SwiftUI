@@ -13,6 +13,10 @@
 		F22EFCF225E78853008B23D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22EFCF125E78853008B23D6 /* Preview Assets.xcassets */; };
 		F23C624625E7CDF40069006F /* ButtonWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23C624525E7CDF40069006F /* ButtonWithImageView.swift */; };
 		F23C624925E7D4710069006F /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23C624825E7D4710069006F /* OTPView.swift */; };
+		F296B84725E9148A00AF0BCF /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296B84625E9148A00AF0BCF /* PriceView.swift */; };
+		F296B84A25E9153800AF0BCF /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296B84925E9153800AF0BCF /* SelectionView.swift */; };
+		F296B84F25E917DD00AF0BCF /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296B84E25E917DD00AF0BCF /* Options.swift */; };
+		F296B85325E9183900AF0BCF /* OptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296B85225E9183900AF0BCF /* OptionData.swift */; };
 		F2C508A325E8CF12002D1338 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */; };
 		F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C508A625E8DD76002D1338 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +30,10 @@
 		F22EFCF325E78853008B23D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23C624525E7CDF40069006F /* ButtonWithImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithImageView.swift; sourceTree = "<group>"; };
 		F23C624825E7D4710069006F /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		F296B84625E9148A00AF0BCF /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		F296B84925E9153800AF0BCF /* SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		F296B84E25E917DD00AF0BCF /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		F296B85225E9183900AF0BCF /* OptionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionData.swift; sourceTree = "<group>"; };
 		F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F2C508A625E8DD76002D1338 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +68,8 @@
 		F22EFCE925E78852008B23D6 /* Digital Insurance */ = {
 			isa = PBXGroup;
 			children = (
+				F296B85225E9183900AF0BCF /* OptionData.swift */,
+				F296B84D25E9169D00AF0BCF /* Model */,
 				F26BB13425E7890000866AE5 /* View */,
 				F26BB13325E788F600866AE5 /* App */,
 				F22EFCEE25E78853008B23D6 /* Assets.xcassets */,
@@ -85,6 +95,8 @@
 				F22EFCEC25E78852008B23D6 /* SignInView.swift */,
 				F23C624825E7D4710069006F /* OTPView.swift */,
 				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
+				F296B84625E9148A00AF0BCF /* PriceView.swift */,
+				F296B84925E9153800AF0BCF /* SelectionView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -95,6 +107,14 @@
 				F23C624525E7CDF40069006F /* ButtonWithImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F296B84D25E9169D00AF0BCF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F296B84E25E917DD00AF0BCF /* Options.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,11 +187,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F296B84F25E917DD00AF0BCF /* Options.swift in Sources */,
 				F22EFCED25E78852008B23D6 /* SignInView.swift in Sources */,
+				F296B85325E9183900AF0BCF /* OptionData.swift in Sources */,
 				F22EFCEB25E78852008B23D6 /* Digital_InsuranceApp.swift in Sources */,
+				F296B84725E9148A00AF0BCF /* PriceView.swift in Sources */,
 				F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */,
 				F23C624925E7D4710069006F /* OTPView.swift in Sources */,
 				F23C624625E7CDF40069006F /* ButtonWithImageView.swift in Sources */,
+				F296B84A25E9153800AF0BCF /* SelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
