@@ -9,26 +9,44 @@ import SwiftUI
 
 struct OTPView: View {
     
+    
+    @Environment(\.presentationMode) var presentationMode
     @State var timerVal = 0.0
+    @State var count = 0.0
     @State var isSegue = false
+    @State var isResend = false
     @State var first = 0
     @State var second = 0
     @State var third = 0
     @State var fourth = 0
+    
     
     @ObservedObject var textBindingManager = TextBindingManager(limit: 1)
     
     var body: some View {
         
        
-        var _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (tick) in
+        
+        if isResend == false{
+            var _ = Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false) { (tick) in
             
-            if timerVal < 0.8{
-                timerVal += 0.10
+            
+            count += 1
+            print(count)
+                
+            if count < 10{
                 print(timerVal)
+//                timerVal += 0.10
+                timerVal = (timerVal + 0.1).rounded(toPlaces: 1)
+               
             }else{
-                isSegue.toggle()
+                isResend = true
+                tick.invalidate()
+                
+                
+                
             }
+        }
         }
        
         
@@ -43,7 +61,7 @@ struct OTPView: View {
                     Text("sms ვერიფიკაცია")
                         .font(.title2)
                         .foregroundColor(.white)
-                        .padding(.bottom, 60)
+                        .padding(.bottom, 30)
                         .padding(.top, 100)
                      
                     
@@ -100,15 +118,36 @@ struct OTPView: View {
                         
                 }
                     .padding(.horizontal)
-                    .padding(.top, 60)
+                    .padding(.top, 40)
+                    
+                    
+                    if isResend == true{
+                       
+                      
+                        HStack{
+                            Image(systemName: "arrow.counterclockwise")
+                                .foregroundColor(Color("Button_Color"))
+                            
+                            Text("კოდის ხელახლა მიღება")
+                                .foregroundColor(.white)
+                                .fontWeight(.light)
+                                .font(.subheadline)
+                            
+                           
+                               
+                        } .padding(.top, 30)
+                        
+                       
+                    }
+                    
                     
                     
                     NavigationLink(
-                        destination: Text("Yahoo"),
+                        destination: DashboardView(),
                         isActive: $isSegue,
                         label: {
                             Button(action: {
-                               
+                                isSegue.toggle()
                             }, label: {
                                 ButtonWithImageView(Title: "შემდეგი")
                                     .padding(.top, 30)
@@ -117,7 +156,7 @@ struct OTPView: View {
                   
                     
                   
-                   
+                   Spacer()
                     
                    
                    
@@ -127,6 +166,17 @@ struct OTPView: View {
                
             }
         })
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                Button(action: {
+                                    presentationMode.wrappedValue.dismiss()
+                                }, label: {
+                                    
+                                    Image(systemName: "chevron.left")
+                                        .foregroundColor(.white)
+                                })
+        
+        )
        
         
       
@@ -178,5 +228,14 @@ class TextBindingManager: ObservableObject {
 
     init(limit: Int = 5){
         characterLimit = limit
+    }
+}
+
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }

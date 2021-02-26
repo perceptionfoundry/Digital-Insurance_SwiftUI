@@ -13,6 +13,8 @@
 		F22EFCF225E78853008B23D6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22EFCF125E78853008B23D6 /* Preview Assets.xcassets */; };
 		F23C624625E7CDF40069006F /* ButtonWithImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23C624525E7CDF40069006F /* ButtonWithImageView.swift */; };
 		F23C624925E7D4710069006F /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23C624825E7D4710069006F /* OTPView.swift */; };
+		F2C508A325E8CF12002D1338 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */; };
+		F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C508A625E8DD76002D1338 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		F22EFCF325E78853008B23D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23C624525E7CDF40069006F /* ButtonWithImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonWithImageView.swift; sourceTree = "<group>"; };
 		F23C624825E7D4710069006F /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F2C508A625E8DD76002D1338 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 				F22EFCEE25E78853008B23D6 /* Assets.xcassets */,
 				F22EFCF325E78853008B23D6 /* Info.plist */,
 				F22EFCF025E78853008B23D6 /* Preview Content */,
+				F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */,
 			);
 			path = "Digital Insurance";
 			sourceTree = "<group>";
@@ -78,8 +83,8 @@
 			children = (
 				F22EFCEA25E78852008B23D6 /* Digital_InsuranceApp.swift */,
 				F22EFCEC25E78852008B23D6 /* SignInView.swift */,
-				F23C624525E7CDF40069006F /* ButtonWithImageView.swift */,
 				F23C624825E7D4710069006F /* OTPView.swift */,
+				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 		F26BB13425E7890000866AE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F23C624525E7CDF40069006F /* ButtonWithImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C508A325E8CF12002D1338 /* Launch Screen.storyboard in Resources */,
 				F22EFCF225E78853008B23D6 /* Preview Assets.xcassets in Resources */,
 				F22EFCEF25E78853008B23D6 /* Assets.xcassets in Resources */,
 			);
@@ -162,6 +169,7 @@
 			files = (
 				F22EFCED25E78852008B23D6 /* SignInView.swift in Sources */,
 				F22EFCEB25E78852008B23D6 /* Digital_InsuranceApp.swift in Sources */,
+				F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */,
 				F23C624925E7D4710069006F /* OTPView.swift in Sources */,
 				F23C624625E7CDF40069006F /* ButtonWithImageView.swift in Sources */,
 			);

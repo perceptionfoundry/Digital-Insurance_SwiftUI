@@ -118,7 +118,7 @@ struct SignInView: View {
        
         }
         
-        
+        .preferredColorScheme(.dark) 
             
     }
 }
