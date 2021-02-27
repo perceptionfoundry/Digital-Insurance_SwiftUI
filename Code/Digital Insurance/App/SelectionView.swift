@@ -40,6 +40,7 @@ struct SelectionView: View {
                     }//: HStack End
                 }//: Loop
             }//: Disclosure End
+            
         }//: GroupBox End
         .padding()
         .groupBoxStyle(TransparentGroupBox())
@@ -52,7 +53,7 @@ struct TransparentGroupBox: GroupBoxStyle {
         configuration.content
 //            .frame(maxWidth: .infinity)
             .padding()
-            .background(RoundedRectangle(cornerRadius: 50).fill(Color("Stroke_Color")))
+            .background(RoundedRectangle(cornerRadius: 50).fill(Color("BG_Color")))
             .overlay(configuration.label.padding(.leading, 100), alignment: .topLeading)
     }
 }
