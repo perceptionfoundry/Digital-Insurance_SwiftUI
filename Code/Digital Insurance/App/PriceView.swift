@@ -12,7 +12,7 @@ struct PriceView: View {
     var optionList : Options
     @State var isSegue = false
     @Environment(\.presentationMode) var presentationMode
-    var nutrients = ["Energy", "Sugar", "Fat", "Protein", "Vitamin", "Mineral"]
+    var nutrients = ["სადაზღვევო პროდუქტზე ინფორმაცია", "როგორ მუშაობს", "ბენეფიტები", "გამონაკლისები"]
     
     var body: some View {
         
@@ -91,7 +91,7 @@ struct PriceView: View {
             
             
             NavigationLink(
-                destination: Text("HELLO"),
+                destination: CircularView(),
                 isActive: $isSegue,
                 label: {
                     Button(action: {

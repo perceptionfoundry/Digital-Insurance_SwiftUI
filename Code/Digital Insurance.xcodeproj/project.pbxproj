@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F209E6FA25EA99BA00CDF09C /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F209E6F925EA99BA00CDF09C /* CircularView.swift */; };
 		F22EFCEB25E78852008B23D6 /* Digital_InsuranceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EFCEA25E78852008B23D6 /* Digital_InsuranceApp.swift */; };
 		F22EFCED25E78852008B23D6 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EFCEC25E78852008B23D6 /* SignInView.swift */; };
 		F22EFCEF25E78853008B23D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F22EFCEE25E78853008B23D6 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F209E6F925EA99BA00CDF09C /* CircularView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularView.swift; sourceTree = "<group>"; };
 		F22EFCE725E78852008B23D6 /* Digital Insurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Digital Insurance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F22EFCEA25E78852008B23D6 /* Digital_InsuranceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digital_InsuranceApp.swift; sourceTree = "<group>"; };
 		F22EFCEC25E78852008B23D6 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
 				F296B84625E9148A00AF0BCF /* PriceView.swift */,
 				F296B84925E9153800AF0BCF /* SelectionView.swift */,
+				F209E6F925EA99BA00CDF09C /* CircularView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				F296B85325E9183900AF0BCF /* OptionData.swift in Sources */,
 				F22EFCEB25E78852008B23D6 /* Digital_InsuranceApp.swift in Sources */,
 				F296B84725E9148A00AF0BCF /* PriceView.swift in Sources */,
+				F209E6FA25EA99BA00CDF09C /* CircularView.swift in Sources */,
 				F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */,
 				F23C624925E7D4710069006F /* OTPView.swift in Sources */,
 				F23C624625E7CDF40069006F /* ButtonWithImageView.swift in Sources */,

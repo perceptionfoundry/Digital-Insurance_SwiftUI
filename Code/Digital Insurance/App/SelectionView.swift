@@ -13,9 +13,9 @@ struct SelectionView: View {
     
     var Options : Options
    
-    var optionList = ["Energy", "Sugar", "Fat", "Protein", "Vitamin", "Mineral"]
+    var optionList = ["სადაზღვევო პროდუქტზე ინფორმაცია", "როგორ მუშაობს", "ბენეფიტები", "გამონაკლისები"]
     @State var currentValue = ""
-    @State var index = 0
+    @State var index = 2
     // BODY
     var body: some View {
        

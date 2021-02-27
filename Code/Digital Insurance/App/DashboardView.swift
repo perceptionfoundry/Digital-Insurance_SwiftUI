@@ -14,6 +14,7 @@ struct DashboardView: View {
     @State var isCar = false
     @State var isJeep = false
     @State var isSegue = false
+    @State var isSegue2 = false
     var body: some View {
         
       
@@ -150,11 +151,19 @@ struct DashboardView: View {
                                 
                                 
                                 
-                                Button(action: {
-                                    
-                                }, label: {
-                                    ButtonWithImageView(Title: "გამოთვლა")
-                                }).padding()
+                                NavigationLink(
+                                    destination:CircularView() ,
+                                    isActive: $isSegue,
+                                    label: {
+                                        
+                                        Button(action: {
+                                            isSegue.toggle()
+                                        }, label: {
+                                            ButtonWithImageView(Title: "გამოთვლა")
+                                        }).padding()
+                                    })
+                                
+                               
                                            
                                             
                                 
@@ -171,11 +180,11 @@ struct DashboardView: View {
                    
                     
                     NavigationLink(
-                        destination: PriceView(optionList: OptionData.first!),
-                        isActive: $isSegue,
+                        destination: PriceView(optionList: OptionData.first!) ,
+                        isActive: $isSegue2,
                         label: {
                             Button(action: {
-                                isSegue.toggle()
+                                isSegue2.toggle()
                             }, label: {
                                 ZStack {
                                     
