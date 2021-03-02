@@ -12,6 +12,7 @@ struct StarView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @State var isReload = false
+    @State var isSegue = false
     
     var body: some View {
         
@@ -53,11 +54,19 @@ struct StarView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    
-                }, label: {
-                    ButtonWithImageView(Title: "გამოთვალე ფასი")
-                })
+                
+                NavigationLink(
+                    destination: DetailView(),
+                    isActive: $isSegue,
+                    label: {
+                        Button(action: {
+                            isSegue.toggle()
+                        }, label: {
+                            ButtonWithImageView(Title: "გამოთვალე ფასი")
+                        })
+                    })
+                
+              
                    
                 
                 

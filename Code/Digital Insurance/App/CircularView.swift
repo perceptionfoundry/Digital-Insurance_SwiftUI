@@ -183,10 +183,10 @@ struct CircularView: View {
                                 HStack{
                                     Text("გაიაქტიურე დაზღვევა ტესტდრაივის გარეშე")
                                         .font(.custom("", size: 10))
-                                        .foregroundColor(Color("Stroke_Color"))
+                                        .foregroundColor(Color(#colorLiteral(red: 0.437243104, green: 0.5749703646, blue: 0.6681075096, alpha: 1)))
                                     Image(systemName:"chevron.right")
                                         .padding(.trailing, 20)
-                                        .foregroundColor(Color("Stroke_Color"))
+                                        .foregroundColor(Color(#colorLiteral(red: 0.437243104, green: 0.5749703646, blue: 0.6681075096, alpha: 1)))
                                         .padding(.leading,1)
                                 }
                                 .padding(.top, 2)

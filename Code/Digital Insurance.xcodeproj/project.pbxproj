@@ -22,6 +22,8 @@
 		F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C508A625E8DD76002D1338 /* DashboardView.swift */; };
 		F2FBB67525EE3B9000370A94 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBB67425EE3B9000370A94 /* StarView.swift */; };
 		F2FBB67B25EE45B200370A94 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2FBB67A25EE45B200370A94 /* IQKeyboardManagerSwift */; };
+		F2FBB67E25EE4A1F00370A94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBB67D25EE4A1F00370A94 /* DetailView.swift */; };
+		F2FBB68125EE552F00370A94 /* InsetMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBB68025EE552F00370A94 /* InsetMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F2C508A625E8DD76002D1338 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		F2FBB67425EE3B9000370A94 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
+		F2FBB67D25EE4A1F00370A94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		F2FBB68025EE552F00370A94 /* InsetMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				F296B84925E9153800AF0BCF /* SelectionView.swift */,
 				F209E6F925EA99BA00CDF09C /* CircularView.swift */,
 				F2FBB67425EE3B9000370A94 /* StarView.swift */,
+				F2FBB67D25EE4A1F00370A94 /* DetailView.swift */,
+				F2FBB68025EE552F00370A94 /* InsetMap.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -202,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F296B84F25E917DD00AF0BCF /* Options.swift in Sources */,
+				F2FBB68125EE552F00370A94 /* InsetMap.swift in Sources */,
+				F2FBB67E25EE4A1F00370A94 /* DetailView.swift in Sources */,
 				F22EFCED25E78852008B23D6 /* SignInView.swift in Sources */,
 				F296B85325E9183900AF0BCF /* OptionData.swift in Sources */,
 				F22EFCEB25E78852008B23D6 /* Digital_InsuranceApp.swift in Sources */,
