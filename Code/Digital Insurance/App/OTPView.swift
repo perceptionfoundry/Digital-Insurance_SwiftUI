@@ -208,6 +208,7 @@ struct numberView: View {
                 .font(.largeTitle)
                     .padding()
                     .multilineTextAlignment(.center)
+                .keyboardType(.numberPad)
                     
 
             

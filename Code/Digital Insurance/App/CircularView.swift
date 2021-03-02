@@ -20,9 +20,9 @@ struct CircularView: View {
        
       
         NavigationLink(
-            destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+            destination: StarView(),
             isActive: $isSegue2,
-            label: {
+            label: {})
                 
                 
                 ZStack{
@@ -151,8 +151,13 @@ struct CircularView: View {
                              
                                         Button(action:
                                                 {
-                                                    isStarted = true
-                                                    Timer.scheduledTimer(withTimeInterval: 0.000001, repeats: true) { (timer) in
+                                                    isStarted.toggle()
+                                                    
+                                                    
+//
+                                                    
+                                                    
+                                                    Timer.scheduledTimer(withTimeInterval: 0.0000001, repeats: true) { (timer) in
                                                         self.progress += 0.0001
                                                         sum = progress
                                                         
@@ -206,6 +211,7 @@ struct CircularView: View {
                                                            , height: 30, alignment:.center )
                                                     .clipShape(RoundedRectangle(cornerRadius: 15))
                                         )
+                                            .padding(.top, 20)
                                         
                                         Text("აპლიკაციის ჩაკეცვისას ტესტ დრაივი დაპაუზდება ფრთხილად შეანელე და ააჩქარე მანქანა სიჩქარეს არ გადააჭარბო")
                                             .font(.subheadline)
@@ -237,7 +243,7 @@ struct CircularView: View {
                 
                 
                 
-            })
+//          image
     }
     
     

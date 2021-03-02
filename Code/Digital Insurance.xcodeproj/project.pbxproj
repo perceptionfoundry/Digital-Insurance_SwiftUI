@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		F296B85325E9183900AF0BCF /* OptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296B85225E9183900AF0BCF /* OptionData.swift */; };
 		F2C508A325E8CF12002D1338 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */; };
 		F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C508A625E8DD76002D1338 /* DashboardView.swift */; };
+		F2FBB67525EE3B9000370A94 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBB67425EE3B9000370A94 /* StarView.swift */; };
+		F2FBB67B25EE45B200370A94 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2FBB67A25EE45B200370A94 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		F296B85225E9183900AF0BCF /* OptionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionData.swift; sourceTree = "<group>"; };
 		F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F2C508A625E8DD76002D1338 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		F2FBB67425EE3B9000370A94 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2FBB67B25EE45B200370A94 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +104,7 @@
 				F296B84625E9148A00AF0BCF /* PriceView.swift */,
 				F296B84925E9153800AF0BCF /* SelectionView.swift */,
 				F209E6F925EA99BA00CDF09C /* CircularView.swift */,
+				F2FBB67425EE3B9000370A94 /* StarView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -136,6 +141,9 @@
 			dependencies = (
 			);
 			name = "Digital Insurance";
+			packageProductDependencies = (
+				F2FBB67A25EE45B200370A94 /* IQKeyboardManagerSwift */,
+			);
 			productName = "Digital Insurance";
 			productReference = F22EFCE725E78852008B23D6 /* Digital Insurance.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +171,9 @@
 				Base,
 			);
 			mainGroup = F22EFCDE25E78852008B23D6;
+			packageReferences = (
+				F2FBB67925EE45B200370A94 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = F22EFCE825E78852008B23D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,6 +209,7 @@
 				F209E6FA25EA99BA00CDF09C /* CircularView.swift in Sources */,
 				F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */,
 				F23C624925E7D4710069006F /* OTPView.swift in Sources */,
+				F2FBB67525EE3B9000370A94 /* StarView.swift in Sources */,
 				F23C624625E7CDF40069006F /* ButtonWithImageView.swift in Sources */,
 				F296B84A25E9153800AF0BCF /* SelectionView.swift in Sources */,
 			);
@@ -329,7 +341,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital Insurance/Preview Content\"";
-				DEVELOPMENT_TEAM = MT778N5UZ2;
+				DEVELOPMENT_TEAM = 3V6GH9JAQD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Digital Insurance/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -351,7 +363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Digital Insurance/Preview Content\"";
-				DEVELOPMENT_TEAM = MT778N5UZ2;
+				DEVELOPMENT_TEAM = 3V6GH9JAQD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Digital Insurance/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -388,6 +400,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F2FBB67925EE45B200370A94 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F2FBB67A25EE45B200370A94 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2FBB67925EE45B200370A94 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F22EFCDF25E78852008B23D6 /* Project object */;
 }

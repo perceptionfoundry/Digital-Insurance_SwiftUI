@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import IQKeyboardManagerSwift
 
 @main
 struct Digital_InsuranceApp: App {
+    
+    
+    init(){
+        IQKeyboardManager.shared.enable = true
+    }
     var body: some Scene {
         WindowGroup {
             SignInView()
