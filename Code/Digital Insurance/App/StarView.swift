@@ -13,7 +13,10 @@ struct StarView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isReload = false
     @State var isSegue = false
-    
+    @State var now = Date()
+    @State var seconds : Double = 0
+//   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
     var body: some View {
         
         
@@ -30,7 +33,10 @@ struct StarView: View {
                 
                 Image("Star")
                     .resizable()
+                    .rotationEffect(Angle.degrees(360 * seconds / 60))
                     .frame(width: 300, height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
+                                
                 
                 Text("9/10 ქულა")
                     .font(.title)
@@ -96,8 +102,14 @@ struct StarView: View {
               
                 
                 Spacer()
-            }
-    
+            }                        .onAppear(perform: {
+                withAnimation(Animation.linear(duration: 2).repeatForever()){
+                
+                    seconds = 10
+                }
+            })
+
+                      
             
             
             

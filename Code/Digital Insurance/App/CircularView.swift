@@ -9,20 +9,27 @@ import SwiftUI
 
 struct CircularView: View {
     
-    @State var progress : Double = 0
-    @State var progress2 : Double = 0
+    @State var progress_previous : Double = 0.0
+    @State var progress_current : Double = 0.1
+    @State var progress2 : Double = 0.1
     @State var sum : Double = 0
     @State var isSegue2 = false
+    @State var isChange = false
     @State var isStarted = false
+    @State var isAnimation = true
+    @State var animation :Double = 0.0
+    
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
+       
        
       
         NavigationLink(
             destination: StarView(),
             isActive: $isSegue2,
-            label: {})
+            label: {
                 
                 
                 ZStack{
@@ -51,32 +58,45 @@ struct CircularView: View {
                         
                         ZStack{
                             
+                            
+                         
                             Circle()
-                                .foregroundColor(Color("Stroke_Color"))
-                                .frame(width: 250, height: 250, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                                .shadow(color: Color("Button_Color"), radius: 9, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(Color("Button_Color"))
+                                .frame(width: 205, height: 205, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .shadow(color: Color("Button_Color"), radius: 10, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                                .scaleEffect(1 + CGFloat(animation))
+                                .opacity(0.8)
+                            
+                            
+                        
                             
                             Circle()
-                                .trim(from: 0.0, to: CGFloat(self.progress))
-                                .stroke(style: StrokeStyle(lineWidth: 25, lineCap: .round, lineJoin: .round))
-                                .foregroundColor(Color("Button_Color"))
-                                .frame(width: 225, height: 225, alignment: .top)
-                                .rotationEffect(.degrees(-90))
-                                .animation(Animation.linear(duration: 2.0))
+                                .foregroundColor(Color("Stroke_Color"))
+                                .frame(width: 225, height: 225, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//                                .shadow(color: Color("Button_Color"), radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+                               
+                                
                             
                             
                             Circle()
                                 .trim(from: 0.0, to: CGFloat(self.progress2))
                                 .stroke(style: StrokeStyle(lineWidth: 25, lineCap: .round, lineJoin: .round))
                                 .foregroundColor(Color(#colorLiteral(red: 1, green: 0.6058419347, blue: 0, alpha: 1)))
-                                .frame(width: 225, height: 225, alignment: .top)
+                                .frame(width: 200, height: 200, alignment: .top)
                                 .rotationEffect(.degrees(-90))
                                 .animation(Animation.linear(duration: 2.0))
-                                
                             
                             Circle()
+                                .trim(from: CGFloat(self.progress_previous), to: CGFloat(self.progress_current))
+                                .stroke(style: StrokeStyle(lineWidth: 25, lineCap: .round, lineJoin: .round))
+                                .foregroundColor(Color("Button_Color"))
+                                .frame(width: 200, height: 200, alignment: .top)
+                                .rotationEffect(.degrees(-90))
+//                                .animation(Animation.linear(duration: 2.0))
+      
+                            Circle()
                                 .foregroundColor(Color("BG_Color"))
-                                .frame(width: 200, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .frame(width: 175, height: 175, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             
                             VStack{
                                 HStack {
@@ -99,8 +119,15 @@ struct CircularView: View {
                                 
                             }
                             
-                        }//ZStack End
+                        }//ZStack End (CIRCLE PART)
                         .padding(.top, 50)
+                        .onAppear(perform: {
+                            withAnimation(Animation.easeInOut(duration: 2).repeatForever()){
+                            
+                                animation = 0.1
+                            }
+                        })
+
                         
                         if isStarted == false{
                             
@@ -153,22 +180,23 @@ struct CircularView: View {
                                                 {
                                                     isStarted.toggle()
                                                     
-                                                    
+                                                  
 //
                                                     
                                                     
-                                                    Timer.scheduledTimer(withTimeInterval: 0.0000001, repeats: true) { (timer) in
-                                                        self.progress += 0.0001
-                                                        sum = progress
+                                                    Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { (timer) in
+                                                        self.progress_previous += 0.01
+                                                        self.progress_current += 0.01
+                                                        sum = progress_current
                                                         
-                                                        if self.progress >= 1{
-                                                            self.progress2 += 0.0001
+                                                        if self.progress_previous >= 0.08{
+                                                            self.progress2 += 0.01
                                                             
                                                             if self.progress2 >= 1{
                                                   
                                                                 timer.invalidate()
                                                                 self.isSegue2 = true
-                                                                self.segue()
+                                                                
 
                                                             }
                                                         }
@@ -197,9 +225,9 @@ struct CircularView: View {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 30)
                                         .foregroundColor(Color("Stroke_Color"))
-                                        .frame( height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                        .frame( height: 130, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                         .padding()
-                                    
+
                                     VStack {
                                         Text("ფრანშიზა: 250 GEL")
                                             .font(.subheadline)
@@ -208,18 +236,18 @@ struct CircularView: View {
                                             .background(
                                                 Color(#colorLiteral(red: 0.3601864874, green: 0.4746327996, blue: 0.6954559684, alpha: 1))
                                                     .frame(width: 180
-                                                           , height: 30, alignment:.center )
-                                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                                                           , height: 25, alignment:.center )
+                                                    .clipShape(RoundedRectangle(cornerRadius: 12.5))
                                         )
                                             .padding(.top, 20)
-                                        
+
                                         Text("აპლიკაციის ჩაკეცვისას ტესტ დრაივი დაპაუზდება ფრთხილად შეანელე და ააჩქარე მანქანა სიჩქარეს არ გადააჭარბო")
-                                            .font(.subheadline)
+                                            .font(.custom("", size: 10))
                                             .foregroundColor(.white)
                                                 .multilineTextAlignment(.center)
                                             .padding(.horizontal)
                                             .padding()
-                                        
+
                                     }
                                 }//ZStack
                             }
@@ -227,6 +255,7 @@ struct CircularView: View {
                         
                         Spacer()
                     } //VStack End
+                    
                     
                 }// ZStack End
                 .navigationBarBackButtonHidden(true)
@@ -242,16 +271,12 @@ struct CircularView: View {
                 )
                 
                 
-                
+            })
 //          image
     }
     
     
-    func segue(){
-        
-        
-      
-    }
+ 
 }
 
 

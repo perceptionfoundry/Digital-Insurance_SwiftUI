@@ -104,12 +104,12 @@
 				F22EFCEA25E78852008B23D6 /* Digital_InsuranceApp.swift */,
 				F22EFCEC25E78852008B23D6 /* SignInView.swift */,
 				F23C624825E7D4710069006F /* OTPView.swift */,
-				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
-				F296B84625E9148A00AF0BCF /* PriceView.swift */,
-				F296B84925E9153800AF0BCF /* SelectionView.swift */,
 				F209E6F925EA99BA00CDF09C /* CircularView.swift */,
 				F2FBB67425EE3B9000370A94 /* StarView.swift */,
 				F2FBB67D25EE4A1F00370A94 /* DetailView.swift */,
+				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
+				F296B84625E9148A00AF0BCF /* PriceView.swift */,
+				F296B84925E9153800AF0BCF /* SelectionView.swift */,
 				F2FBB68025EE552F00370A94 /* InsetMap.swift */,
 			);
 			path = App;

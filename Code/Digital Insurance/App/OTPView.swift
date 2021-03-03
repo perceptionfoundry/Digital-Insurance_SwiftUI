@@ -143,7 +143,7 @@ struct OTPView: View {
                     
                     
                     NavigationLink(
-                        destination: DashboardView(),
+                        destination: CircularView(),
                         isActive: $isSegue,
                         label: {
                             Button(action: {

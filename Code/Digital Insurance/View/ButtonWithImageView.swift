@@ -22,8 +22,8 @@ struct ButtonWithImageView: View {
         ZStack {
             
             Capsule()
-                .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                .foregroundColor(Color("Button_Color"))
+                .frame(width: 160, height: 30, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .foregroundColor(Color (#colorLiteral(red: 0, green: 0.7586771846, blue: 0.7385103106, alpha: 1)))
             
             
             HStack {
@@ -31,15 +31,17 @@ struct ButtonWithImageView: View {
                Spacer()
                 Text(Title)
                     .foregroundColor(Color.white)
-                    .font(.subheadline)
+                    .font(.custom("", size: 10))
                Spacer()
                 Image(systemName:"chevron.right")
-                    .padding(.trailing, 20)
+                    .resizable()
+                    .frame(width: 5, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding(.trailing, 30)
                     .foregroundColor(.white)
                 
             } //************  HSTACK End
             .padding(.leading)// HStack End
-            .frame(width: 200, height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .frame(width: 200, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/ )
             
         }//************ VStack End
