@@ -9,12 +9,14 @@ import SwiftUI
 
 struct DashboardView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @State var collected_car = "Car"
     @State var collected_jeep = "Jeep"
     @State var isCar = false
     @State var isJeep = false
     @State var isSegue = false
     @State var isSegue2 = false
+    @State var selectedDate = Date()
     var body: some View {
         
       
@@ -124,13 +126,17 @@ struct DashboardView: View {
                                         .foregroundColor(.white)
                                         .padding(.bottom, 20)
                                     
-                                    TextField("დდ/თთ/წწ", text: .constant(""))
-                                        .multilineTextAlignment(.center)
-                                        .foregroundColor(Color(#colorLiteral(red: 0.4293341339, green: 0.5671182871, blue: 0.6602508426, alpha: 1)))
+                              
+                                       
+                                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                                        .labelsHidden()
+                                        .accentColor(Color(#colorLiteral(red: 0.4293341339, green: 0.5671182871, blue: 0.6602508426, alpha: 1)))
                                         .background(
                                             Color("BG_Color")
                                                 .frame(width: geometry.size.width * 0.8, height: 40 , alignment:.center )
                                                 .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)))
+                                    
+
                                     
                                     
                                     Text("მანქანის საბაზრო ღირებულება")
@@ -228,6 +234,17 @@ struct DashboardView: View {
             
         } //Main ZStake end
         .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading:
+                                Button(action: {
+                                    presentationMode.wrappedValue.dismiss()
+                                }, label: {
+                                    
+                                    Image(systemName: "chevron.left")
+                                        .foregroundColor(.white)
+                                })
+        
+        )
+
     }
 }
 

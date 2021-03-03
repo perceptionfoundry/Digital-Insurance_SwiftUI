@@ -13,6 +13,7 @@ struct StarView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isReload = false
     @State var isSegue = false
+    @State var isSegue2 = false
     @State var now = Date()
     @State var seconds : Double = 0
 //   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -45,24 +46,35 @@ struct StarView: View {
                 
                 
           
-                 
-                    
+                 NavigationLink(
+                    destination: DetailView(),
+                    isActive: $isSegue2,
+                    label: {
+                        
+                        Button(action: {
+                            isSegue2.toggle()
+                        }, label: {
+                       
+                            Text("დეტალურად")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                                .background(
+                                    Color(#colorLiteral(red: 0.3601864874, green: 0.4746327996, blue: 0.6954559684, alpha: 1))
+                                        .frame(width: 250
+                                               , height: 30, alignment:.center )
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                            )
+                        })
+                    })
+             
                   
-                        Text("დეტალურად")
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                            .background(
-                                Color(#colorLiteral(red: 0.3601864874, green: 0.4746327996, blue: 0.6954559684, alpha: 1))
-                                    .frame(width: 250
-                                           , height: 30, alignment:.center )
-                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                        )
+                        
                 
                 Spacer()
                 
                 
                 NavigationLink(
-                    destination: DetailView(),
+                    destination: DashboardView(),
                     isActive: $isSegue,
                     label: {
                         Button(action: {
@@ -116,16 +128,6 @@ struct StarView: View {
             
         }// ZStack End
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-                                Button(action: {
-                                    presentationMode.wrappedValue.dismiss()
-                                }, label: {
-                                    
-                                    Image(systemName: "chevron.left")
-                                        .foregroundColor(.white)
-                                })
-        
-        )
     }
 }
 
