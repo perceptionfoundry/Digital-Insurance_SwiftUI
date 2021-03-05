@@ -10,16 +10,12 @@ import SwiftUI
 struct DetailView: View {
     
     
-    @Environment(\.presentationMode) var presentationMode
+    @Binding var isDismiss : Bool
     
     var body: some View {
         
         
-        ZStack{
-            
-            
-            LinearGradient(gradient: Gradient(colors: [Color("BG_Color")]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+       
             
             
             GeometryReader(content: { geometry in
@@ -30,11 +26,11 @@ struct DetailView: View {
                         GeometryReader(content: { geometry_insider in
                             RoundedRectangle(cornerRadius: 25.0)
                                 .foregroundColor(Color("Stroke_Color"))
-                                .frame( height: geometry.size.height * 0.75, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                                .frame( height: geometry.size.height * 0.8, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                                 .padding()
                             
                             Button(action: {
-                                presentationMode.wrappedValue.dismiss()
+                                isDismiss = false
                             }, label: {
                                 
                                 Image("Cross")
@@ -57,11 +53,11 @@ struct DetailView: View {
 
                                 
                             }
-                            .padding(.top, 40)
+                            .padding(.top, 50)
                             .padding(.leading, geometry_insider.size.width * 0.1)
                             
-                                InsetMap(heightValue: geometry_insider.size.height * 0.25)
-                                .padding(.top, geometry_insider.size.height * 0.7)
+                                InsetMap(heightValue: geometry_insider.size.height * 0.3)
+                                    .padding(.top, geometry_insider.size.height * 0.45)
                                 .padding(.horizontal, 30)
                      
                         })
@@ -69,25 +65,13 @@ struct DetailView: View {
                         }
                     }
                     
-                    Spacer()
-                    ButtonWithImageView(Title: "გამოთვალე ფასი")
-                    HStack{
-                        Text("ტესტის თავიდან გავლა")
-                            .font(.custom("", size: 10))
-                            .foregroundColor(Color(#colorLiteral(red: 0.437243104, green: 0.5749703646, blue: 0.6681075096, alpha: 1)))
-                        Image(systemName:"chevron.right")
-                            .padding(.trailing, 20)
-                            .foregroundColor(Color(#colorLiteral(red: 0.437243104, green: 0.5749703646, blue: 0.6681075096, alpha: 1)))
-                            .padding(.leading,1)
-                    }
-                    .padding(.top, 2)
-                    Spacer()
+                    
+                    
                 }
 
             })
        
-        }// ZStack End
-        .navigationBarBackButtonHidden(true)
+     
         
 
     }
@@ -95,7 +79,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(isDismiss: .constant(false))
     }
 }
 

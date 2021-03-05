@@ -1,22 +1,15 @@
-//
-//  PriceView.swift
-//  Digital Insurance
-//
-//  Created by Syed ShahRukh Haider on 26/02/2021.
-//
-
 import SwiftUI
 
-struct PriceView: View {
+struct PriceView3: View {
     
-  
+//    var optionList : Options
     @State var isSegue = false
-    
-    @State var isExpand = true
-    @State var animation :Double = 0.0
     
     @Environment(\.presentationMode) var presentationMode
     var nutrients = ["სადაზღვევო პროდუქტზე ინფორმაცია", "როგორ მუშაობს", "ბენეფიტები", "გამონაკლისები"]
+    
+    @State var isExpand = false
+    @State var animation :Double = 0.0
     
     var body: some View {
         
@@ -90,9 +83,7 @@ struct PriceView: View {
                 isActive: $isSegue,
                 label: {
                     Button(action: {
-                        if !isExpand{
                         isSegue.toggle()
-                        }
                     }, label: {
                         ZStack {
                             
@@ -122,8 +113,6 @@ struct PriceView: View {
                         
                         .padding(.top, 40)
                     })
-                   
-                    
                 })
 
             
@@ -142,7 +131,7 @@ struct PriceView: View {
                                 }))
             
         RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-            .frame(height: isExpand ? 500 : 60
+            .frame(height: isExpand ? 525 : 60
                    , alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             .foregroundColor(Color("Stroke_Color"))
             .padding()
@@ -204,14 +193,21 @@ struct PriceView: View {
             }
             
         }// MAIN ZSTACK END
-        .navigationBarHidden(true)
+//        .onAppear(perform: {
+//            withAnimation(Animation.easeInOut(duration: 2).repeatForever()){
+//
+//                animation = 0.1
+//            }
+//        })
         
     }
 }
 
-struct PriceView_Previews: PreviewProvider {
+struct PriceView3_Previews: PreviewProvider {
     static var previews: some View {
-        PriceView()
+        PriceView3()
             .previewDevice("iPhone 8")
+        PriceView3()
+            .previewDevice("iPhone 11")
     }
 }

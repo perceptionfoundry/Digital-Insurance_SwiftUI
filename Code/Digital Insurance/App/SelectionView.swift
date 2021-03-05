@@ -11,59 +11,104 @@ struct SelectionView: View {
     
     //PROPERTIES
     
-    var Options : Options
+    @Environment(\.presentationMode) var presentationMode
+
    
     var optionList = ["სადაზღვევო პროდუქტზე ინფორმაცია", "როგორ მუშაობს", "ბენეფიტები", "გამონაკლისები"]
+    
     @State var currentValue = ""
-    @State var index = 2
+  
     // BODY
     var body: some View {
        
-       
-        GroupBox(){
-            DisclosureGroup(optionList[index]) {
-              
-                ForEach(0..<optionList.count, id: \.self){ item in
-                    Divider()
-                    VStack{
-             
-                        Button(action: {
-                            index = item
-                        }, label: {
-                            Text(optionList[item])
-                                .foregroundColor(.white)
-                        })
-                        
-                           
-                            
-                        
-                    }//: HStack End
-                }//: Loop
-            }//: Disclosure End
+        ZStack{
             
-        }//: GroupBox End
-        .padding()
-        .groupBoxStyle(TransparentGroupBox())
-        
-    }
-}
+            
+            LinearGradient(gradient: Gradient(colors: [Color("BG_Color")]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+       
+            
+            VStack{
+                
+                VStack{
+                    
+                    
+                    Text("გაიგე ფასი")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding(.bottom,100)
+                     
+                } //VStack End
+                      
+                
+                            ForEach(optionList, id: \.self) { string in
+                                cellView(title: string)
+                            }.listRowBackground(Color("BG_Color"))
+                           
+                        
+                        
+                
+                Spacer()
+                
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    
+                    ButtonWithImageView(Title: "გაიაქტიურე დაზღვევა")
+                })
+                
+                
+            }
 
-struct TransparentGroupBox: GroupBoxStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.content
-//            .frame(maxWidth: .infinity)
-            .padding()
-            .background(RoundedRectangle(cornerRadius: 50).fill(Color("BG_Color")))
-            .overlay(configuration.label.padding(.leading, 100), alignment: .topLeading)
+
+        
+        } //Main ZStake end
+      
     }
+    
 }
 
 //PREVIEW
 struct SelectionView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectionView(Options: OptionData[0])
-            .preferredColorScheme(.dark)
-            .previewLayout(.fixed(width: 375, height: 300))
-            .padding()
+        SelectionView()
+    }
+    
+}
+
+struct cellView: View {
+    
+    var title : String
+    
+    var body: some View {
+        ZStack {
+            
+            Capsule()
+                .frame( height: 50, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .foregroundColor(Color ("Stroke_Color"))
+            
+            
+            HStack() {
+                
+               
+                Text(title)
+                    .foregroundColor(Color.white)
+                    .multilineTextAlignment(.center)
+                    .font(.custom("", size: 10))
+                Spacer()
+                
+                Image(systemName:"chevron.right")
+                    .resizable()
+                    .frame(width: 5, height: 10, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .padding()
+                    .foregroundColor(.white)
+                
+            } //************  HSTACK End
+            .padding(.leading)// HStack End
+            .frame(width: 300, height: 35, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/ )
+            
+        }//************ VStack End
+        .padding()
     }
 }

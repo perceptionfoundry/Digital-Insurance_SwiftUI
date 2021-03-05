@@ -20,6 +20,9 @@
 		F296B85325E9183900AF0BCF /* OptionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F296B85225E9183900AF0BCF /* OptionData.swift */; };
 		F2C508A325E8CF12002D1338 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */; };
 		F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C508A625E8DD76002D1338 /* DashboardView.swift */; };
+		F2F37CFD25F10182002FE522 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F37CFC25F10182002FE522 /* testView.swift */; };
+		F2F37D0025F102B5002FE522 /* testview2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F37CFF25F102B5002FE522 /* testview2.swift */; };
+		F2F37D0425F1094F002FE522 /* PriceView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F37D0325F1094F002FE522 /* PriceView3.swift */; };
 		F2FBB67525EE3B9000370A94 /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBB67425EE3B9000370A94 /* StarView.swift */; };
 		F2FBB67B25EE45B200370A94 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F2FBB67A25EE45B200370A94 /* IQKeyboardManagerSwift */; };
 		F2FBB67E25EE4A1F00370A94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FBB67D25EE4A1F00370A94 /* DetailView.swift */; };
@@ -42,6 +45,9 @@
 		F296B85225E9183900AF0BCF /* OptionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionData.swift; sourceTree = "<group>"; };
 		F2C508A225E8CF12002D1338 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F2C508A625E8DD76002D1338 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		F2F37CFC25F10182002FE522 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
+		F2F37CFF25F102B5002FE522 /* testview2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testview2.swift; sourceTree = "<group>"; };
+		F2F37D0325F1094F002FE522 /* PriceView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView3.swift; sourceTree = "<group>"; };
 		F2FBB67425EE3B9000370A94 /* StarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarView.swift; sourceTree = "<group>"; };
 		F2FBB67D25EE4A1F00370A94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		F2FBB68025EE552F00370A94 /* InsetMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsetMap.swift; sourceTree = "<group>"; };
@@ -106,11 +112,9 @@
 				F23C624825E7D4710069006F /* OTPView.swift */,
 				F209E6F925EA99BA00CDF09C /* CircularView.swift */,
 				F2FBB67425EE3B9000370A94 /* StarView.swift */,
-				F2FBB67D25EE4A1F00370A94 /* DetailView.swift */,
-				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
 				F296B84625E9148A00AF0BCF /* PriceView.swift */,
 				F296B84925E9153800AF0BCF /* SelectionView.swift */,
-				F2FBB68025EE552F00370A94 /* InsetMap.swift */,
+				F2F37D0725F12338002FE522 /* Practice */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -118,7 +122,10 @@
 		F26BB13425E7890000866AE5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2C508A625E8DD76002D1338 /* DashboardView.swift */,
+				F2FBB67D25EE4A1F00370A94 /* DetailView.swift */,
 				F23C624525E7CDF40069006F /* ButtonWithImageView.swift */,
+				F2FBB68025EE552F00370A94 /* InsetMap.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +136,16 @@
 				F296B84E25E917DD00AF0BCF /* Options.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		F2F37D0725F12338002FE522 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				F2F37CFC25F10182002FE522 /* testView.swift */,
+				F2F37CFF25F102B5002FE522 /* testview2.swift */,
+				F2F37D0325F1094F002FE522 /* PriceView3.swift */,
+			);
+			path = Practice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,13 +225,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F296B84F25E917DD00AF0BCF /* Options.swift in Sources */,
+				F2F37D0025F102B5002FE522 /* testview2.swift in Sources */,
 				F2FBB68125EE552F00370A94 /* InsetMap.swift in Sources */,
 				F2FBB67E25EE4A1F00370A94 /* DetailView.swift in Sources */,
 				F22EFCED25E78852008B23D6 /* SignInView.swift in Sources */,
 				F296B85325E9183900AF0BCF /* OptionData.swift in Sources */,
 				F22EFCEB25E78852008B23D6 /* Digital_InsuranceApp.swift in Sources */,
 				F296B84725E9148A00AF0BCF /* PriceView.swift in Sources */,
+				F2F37D0425F1094F002FE522 /* PriceView3.swift in Sources */,
 				F209E6FA25EA99BA00CDF09C /* CircularView.swift in Sources */,
+				F2F37CFD25F10182002FE522 /* testView.swift in Sources */,
 				F2C508A725E8DD76002D1338 /* DashboardView.swift in Sources */,
 				F23C624925E7D4710069006F /* OTPView.swift in Sources */,
 				F2FBB67525EE3B9000370A94 /* StarView.swift in Sources */,

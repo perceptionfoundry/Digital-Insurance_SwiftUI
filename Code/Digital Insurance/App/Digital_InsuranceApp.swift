@@ -18,6 +18,7 @@ struct Digital_InsuranceApp: App {
     var body: some Scene {
         WindowGroup {
             SignInView()
+//            PriceView3()
         }
     }
 }

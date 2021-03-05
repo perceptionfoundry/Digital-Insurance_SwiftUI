@@ -29,7 +29,7 @@ struct CircularView: View {
         NavigationLink(
             destination: StarView(),
             isActive: $isSegue2,
-            label: {
+            label: {})
                 
                 
                 ZStack{
@@ -73,8 +73,7 @@ struct CircularView: View {
                             Circle()
                                 .foregroundColor(Color("Stroke_Color"))
                                 .frame(width: 225, height: 225, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//                                .shadow(color: Color("Button_Color"), radius: 3, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
-                               
+//
                                 
                             
                             
@@ -86,13 +85,15 @@ struct CircularView: View {
                                 .rotationEffect(.degrees(-90))
                                 .animation(Animation.linear(duration: 2.0))
                             
+                            
+                            
                             Circle()
                                 .trim(from: CGFloat(self.progress_previous), to: CGFloat(self.progress_current))
                                 .stroke(style: StrokeStyle(lineWidth: 25, lineCap: .round, lineJoin: .round))
                                 .foregroundColor(Color("Button_Color"))
                                 .frame(width: 200, height: 200, alignment: .top)
                                 .rotationEffect(.degrees(-90))
-//                                .animation(Animation.linear(duration: 2.0))
+                              
       
                             Circle()
                                 .foregroundColor(Color("BG_Color"))
@@ -133,9 +134,7 @@ struct CircularView: View {
                             
                             VStack {
                                 Spacer()
-                                Button(action: {
-                                    isSegue2.toggle()
-                                }, label: {
+                             
                                     ZStack {
                                         
                                         Capsule()
@@ -164,7 +163,7 @@ struct CircularView: View {
                                         
                                     }//************ VStack End
                                     .padding(.top)
-                                })
+                               
                                 
                                 
                                 HStack{
@@ -179,17 +178,13 @@ struct CircularView: View {
                                         Button(action:
                                                 {
                                                     isStarted.toggle()
-                                                    
-                                                  
-//
-                                                    
-                                                    
-                                                    Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { (timer) in
+                                                 
+                                                    Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { (timer) in
                                                         self.progress_previous += 0.01
                                                         self.progress_current += 0.01
                                                         sum = progress_current
                                                         
-                                                        if self.progress_previous >= 0.08{
+                                                        if self.progress_previous >= 0.05{
                                                             self.progress2 += 0.01
                                                             
                                                             if self.progress2 >= 1{
@@ -258,6 +253,12 @@ struct CircularView: View {
                     
                     
                 }// ZStack End
+                .onAppear(){
+                    progress_previous = 0.0
+                   progress_current = 0.1
+                   progress2 = 0.1
+                    sum  = 0
+                }
                 .navigationBarBackButtonHidden(true)
                 .navigationBarItems(leading:
                                         Button(action: {
@@ -266,13 +267,10 @@ struct CircularView: View {
                                             
                                             Image(systemName: "chevron.left")
                                                 .foregroundColor(.white)
-                                        })
-                
-                )
-                
-                
-            })
-//          image
+                                        }))
+             
+//            })
+
     }
     
     

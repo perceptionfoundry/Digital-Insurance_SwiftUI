@@ -64,6 +64,7 @@ struct SignInView: View {
                             TextField("5XXXX", text: $mobileNumber)
                                 .foregroundColor(.gray)
                                 .font(.subheadline)
+                                .keyboardType(.phonePad)
                                
 
                         }.padding()

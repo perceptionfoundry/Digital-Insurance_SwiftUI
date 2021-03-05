@@ -13,9 +13,10 @@ struct StarView: View {
     @Environment(\.presentationMode) var presentationMode
     @State var isReload = false
     @State var isSegue = false
-    @State var isSegue2 = false
+    @State var isPopUp = false
     @State var now = Date()
     @State var seconds : Double = 0
+    
 //   let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -31,6 +32,7 @@ struct StarView: View {
                 Text("გილოცავ!")
                     .font(.title)
                     .foregroundColor(.white)
+                    .padding()
                 
                 Image("Star")
                     .resizable()
@@ -46,13 +48,10 @@ struct StarView: View {
                 
                 
           
-                 NavigationLink(
-                    destination: DetailView(),
-                    isActive: $isSegue2,
-                    label: {
+               
                         
                         Button(action: {
-                            isSegue2.toggle()
+                            isPopUp.toggle()
                         }, label: {
                        
                             Text("დეტალურად")
@@ -63,9 +62,11 @@ struct StarView: View {
                                         .frame(width: 250
                                                , height: 30, alignment:.center )
                                         .clipShape(RoundedRectangle(cornerRadius: 15))
+                                    
                             )
                         })
-                    })
+  
+//
              
                   
                         
@@ -74,7 +75,7 @@ struct StarView: View {
                 
                 
                 NavigationLink(
-                    destination: DashboardView(),
+                    destination: PriceView(),
                     isActive: $isSegue,
                     label: {
                         Button(action: {
@@ -88,15 +89,16 @@ struct StarView: View {
                    
                 
                 
-                NavigationLink(
-                    destination: DashboardView(),
-                    isActive: $isReload,
-                    label: {
+//                NavigationLink(
+//                    destination:CircularView(),
+//                    isActive: $isReload,
+//                    label: {
                         Button(action: {
-                            isReload.toggle()
+//                            isReload.toggle()
+                            presentationMode.wrappedValue.dismiss()
                         }, label: {
                             HStack{
-                                Text("გაიაქტიურე დაზღვევა ტესტდრაივის გარეშე")
+                                Text( isPopUp ? "ტესტის თავიდან გავლა" :"გაიაქტიურე დაზღვევა ტესტდრაივის გარეშე")
                                     .font(.custom("", size: 10))
                                     .foregroundColor(Color(#colorLiteral(red: 0.437243104, green: 0.5749703646, blue: 0.6681075096, alpha: 1)))
                                 Image(systemName:"arrow.counterclockwise")
@@ -106,27 +108,29 @@ struct StarView: View {
                             }
                             .padding(.top, 2)
                         })
-                    })
-             
-              
-                      
-             
-              
+//                    })
+
                 
-                Spacer()
             }                        .onAppear(perform: {
                 withAnimation(Animation.linear(duration: 2).repeatForever()){
                 
                     seconds = 10
                 }
             })
-
+            
+            if isPopUp{
+                DetailView(isDismiss: $isPopUp)
+                    
+                    Spacer()
+            }
+            
                       
             
             
             
             
         }// ZStack End
+        
         .navigationBarBackButtonHidden(true)
     }
 }
